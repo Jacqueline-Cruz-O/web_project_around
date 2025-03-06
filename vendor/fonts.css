@@ -16,7 +16,7 @@
 }
 
 @font-face {
-  src: url(../vendor/fonts/InterTight-Medium.ttf) format("ttf");
+  src: url(../vendor/fonts/InterDisplay-Medium.woff2) format("woff2");
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
