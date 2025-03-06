@@ -75,3 +75,14 @@
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+
+.footer{
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  color:#545454;
+  margin-left: 200px;
+  margin-top: 0;
+  margin-bottom: 60px;
+}
