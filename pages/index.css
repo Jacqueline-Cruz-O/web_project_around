@@ -1,0 +1,21 @@
+.page{
+  background-color:#000;
+  margin:auto;
+  width:100%;
+}
+
+.header{
+  margin:45px 200px 41px 200px;
+  display:flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid #545454;
+  width: 880px;
+  height: 74px;
+}
+
+.header__image{
+  margin:0;
+  width: 173px;
+  height: 33px;
+}
+
