@@ -29,18 +29,6 @@
         <div>
         <button class="profile__info-add-button" type="button"><img src="./images/vector-plus.png" alt="add-button">
         </div>
-          <!-- REVISAR CÓMO HACER EL POP UP
-          <div class="popup">
-            <button type="button"><img class="popup__button-edit" alt="editar" src="./images/vector-edit.png"> </button>
-            <button type="button"><img class="popup__button-plus" alt="agregar" src="images/vector-plus.png"> </button>
-            <h3>Editar perfil</h3>
-            <form class="popup__form" name="edit">
-              <input type="text" name="name" placeholder="Nombre">
-              <input type="text" name="about" placeholder="Acerca de mí">
-              <button type="submit">Guardar</button>
-            </form>
-          </div>
-          -->
       </section>
       <section class="gallery">
         <div class="gallery__card">
@@ -86,6 +74,15 @@
        </div>
       </div>
       </section>
+       <div class="popup">
+        <button type="button" class="popup__button-close"></button>
+          <h3 class="popup__title">Editar perfil</h3>
+          <form class="popup__form" name="edit">
+            <input type="text" name="name" class="popup__form-input" placeholder="Nombre">
+            <input type="text" name="about" class="popup__form-input" placeholder="Acerca de mí">
+            <button type="submit" class="popup__button-save">Guardar</button>
+          </form>
+      </div>
     </main>
     <footer>
       <p class="footer">© 2024 Around The U.S.</p>
