@@ -62,6 +62,15 @@ margin:0 35px;
   margin-top:18px;
 }
 
+.popup__button-save:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.popup__button-save:active{
+  background-color: black;
+}
+
 .popup__button-close{
   width:40px;
   height:40px;
@@ -73,6 +82,13 @@ margin:0 35px;
   background-repeat: no-repeat;
   border: none;
 }
+
+.popup__button-close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+
 @media screen and (min-width: 768px) and (max-width: 1024px)
  {
   .popup__button-close {

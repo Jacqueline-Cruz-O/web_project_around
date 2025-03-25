@@ -50,8 +50,27 @@
   height: 19px;
   background-image: url(/images/like.png);
   background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: contain;
   border: none;
   align-self: center;
+ }
+
+ .gallery__card-button:hover{
+  opacity: 0.5;
+  cursor: pointer;
+ }
+
+ .gallery__card-button:active{
+  width: 21px;
+  height: 19px;
+  background-image: url(/images/like-black.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  align-self: center;
+  opacity: 1;
  }
 
  @media screen and (min-width: 768px) and (max-width: 1024px)
