@@ -69,6 +69,7 @@ margin:0 35px;
 
 .popup__button-save:active{
   background-color: black;
+  opacity: 1;
 }
 
 .popup__button-close{
