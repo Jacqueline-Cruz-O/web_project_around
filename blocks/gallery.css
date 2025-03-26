@@ -48,7 +48,7 @@
 .gallery__card-button{
   width: 21px;
   height: 19px;
-  background-image: url(/images/button-like.png);
+  background-image: url(../images/button-like.png);
   background-color: #fff;
   background-repeat: no-repeat;
   background-size: contain;
@@ -64,7 +64,7 @@
  .gallery__card-button:active{
   width: 21px;
   height: 19px;
-  background-image: url(/images/button-like-black.png);
+  background-image: url(../images/button-like-black.png);
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: contain;
