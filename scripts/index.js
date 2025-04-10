@@ -1,5 +1,4 @@
   const popup = document.querySelector(".popup");
-  const popupAdd = document.querySelector(".popup__add");
   const editButton =document.querySelector (".profile__info-edit-button");
   const closeButton = document.querySelector(".popup__button-close");
   const formElement =document.querySelector(".popup__form");
@@ -8,11 +7,15 @@
   const profileName = document.querySelector(".profile__info-name");
   const profileDescription = document.querySelector (".profile__info-details");
   const buttonSubmit = document.querySelector(".popup__button-save");
+
+  const popupAdd = document.querySelector(".popup__add");
   const addButton = document.querySelector (".profile__info-add-button");
+  const closeAddButton = document.querySelector(".popup__add-button-close");
+  const formAddElement =document.querySelector(".popup__form-add");
   const placeInput = document.querySelector(".popup__form-input-place");
   const urlInput = document.querySelector(".popup__form-input-url");
   const placeDescription = document.querySelector(".gallery__card-text")
-  const placeImage = document.querySelector("gallery__img")
+  const placeImage = document.querySelector(".gallery__img")
   const createButon = document.querySelector(".popup__button-create");
   const initialCards = [
     {
@@ -67,30 +70,30 @@
     });
   }
 
-  function handleOpenPopup() {
+  function handleOpenPopupAdd() {
     if (popupAdd) {
-      popupAdd.classList.add("openPopup");
+      popupAdd.classList.add("openPopup__add");
     }
   }
 
-  function handleClosePopup() {
-    if (popup__add) {
-      popup__add.classList.remove("openPopup");
+  function handleClosePopupAdd() {
+    if (popupAdd) {
+      popupAdd.classList.remove("openPopup__add");
     }
   }
 
 
-  if (addButton) addButton.addEventListener("click", handleOpenPopup);
-  if (closeButton) closeButton.addEventListener("click", handleClosePopup);
+  if (addButton) addButton.addEventListener("click", handleOpenPopupAdd);
+  if (closeAddButton) closeAddButton.addEventListener("click", handleClosePopupAdd);
 
 
-  if(formElement){
-    formElement.addEventListener("submit",(evt) =>{
+  if(formAddElement){
+    formAddElement.addEventListener("submit",(evt) =>{
       evt.preventDefault();
       if (placeInput && urlInput && placeDescription && placeImage) {
         placeDescription.textContent = placeInput.value;
         placeImage.src = urlInput.value;
       }
-      handleClosePopup();
+      handleClosePopupAdd();
     })
   }

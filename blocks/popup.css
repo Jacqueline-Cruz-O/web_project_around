@@ -1,4 +1,4 @@
-.popup{
+.popup, .popup__add{
  background-color:#fff;
  width: 430px;
  height: 330px;
@@ -13,7 +13,7 @@
  transform: translate(-50%, -50%);
 }
 
-.openPopup{
+.openPopup, .openPopup__add{
   display:flex;
 }
 
@@ -28,14 +28,14 @@
 
 }
 
-.popup__form{
+.popup__form, .popup__form-add{
 display:flex;
 flex-direction: column;
 width: 358px;
 margin:0 35px;
 }
 
-.popup__form-input-name, .popup__form-input-about{
+.popup__form-input-name, .popup__form-input-about, .popup__form-input-place, .popup__form-input-url{
   border:none;
   border-bottom: 1px solid #c4c4c4;
   height:27px;
@@ -46,7 +46,7 @@ margin:0 35px;
   line-height: 1;
 }
 
-.popup__button-save{
+.popup__button-save, .popup__button-create{
   width:358px;
   height: 50px;
   background-color: #fff;
@@ -60,17 +60,17 @@ margin:0 35px;
   margin-top:18px;
 }
 
-.popup__button-save:hover{
+.popup__button-save:hover, .popup__button-create:hover{
   opacity: 0.8;
   cursor: pointer;
 }
 
-.popup__button-save:active{
+.popup__button-save:active, .popup__button-create:active{
   background-color: black;
   opacity: 1;
 }
 
-.popup__button-close{
+.popup__button-close,.popup__add-button-close{
   width:40px;
   height:40px;
   position: absolute;
@@ -82,7 +82,7 @@ margin:0 35px;
   border: none;
 }
 
-.popup__button-close:hover {
+.popup__button-close:hover, .popup__add-button-close:hover {
   opacity: 0.6;
   cursor: pointer;
 }
@@ -104,7 +104,7 @@ max-width: 282px;
 max-height: 322px;
 }
 
-.popup__form{
+.popup__form, .popup__form-add{
  max-width: 282px;
  margin:0;
 }
@@ -114,18 +114,18 @@ max-height: 322px;
   font-size:18px;
   margin: 25px 22px 72px 22px;
 }
-.popup__form-input-name, .popup__form-input-about{
+.popup__form-input-name, .popup__form-input-about,.popup__form-input-place, .popup__form-input-url{
   max-width: 238px;
   margin-left:22px;
   margin-right:22px;
   margin-bottom:30px;
 }
 
-.popup__button-save{
+.popup__button-save, .popup__button-create{
   max-width: 238px;
   margin:16px 22px 25px 22px;
 }
-.popup__button-close {
+.popup__button-close, .popup__add-button-close {
     width: 26px;
     height: 26px;
     background-size: contain;
