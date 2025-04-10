@@ -1,4 +1,5 @@
   const popup = document.querySelector(".popup");
+  const popupAdd = document.querySelector(".popup__add");
   const editButton =document.querySelector (".profile__info-edit-button");
   const closeButton = document.querySelector(".popup__button-close");
   const formElement =document.querySelector(".popup__form");
@@ -7,8 +8,38 @@
   const profileName = document.querySelector(".profile__info-name");
   const profileDescription = document.querySelector (".profile__info-details");
   const buttonSubmit = document.querySelector(".popup__button-save");
-  const openPopup =document.querySelector (".profile__info-add-button");
-
+  const addButton = document.querySelector (".profile__info-add-button");
+  const placeInput = document.querySelector(".popup__form-input-place");
+  const urlInput = document.querySelector(".popup__form-input-url");
+  const placeDescription = document.querySelector(".gallery__card-text")
+  const placeImage = document.querySelector("gallery__img")
+  const createButon = document.querySelector(".popup__button-create");
+  const initialCards = [
+    {
+      name: "Valle de Yosemite",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+    },
+    {
+      name: "Lago Louise",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
+    },
+    {
+      name: "Montañas Calvas",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
+    },
+    {
+      name: "Latemar",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
+    },
+    {
+      name: "Parque Nacional de la Vanoise",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
+    },
+    {
+      name: "Lago di Braies",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
+    }
+  ];
 
   function handleOpenPopup() {
     if (popup) {
@@ -34,4 +65,32 @@
       }
       handleClosePopup();
     });
+  }
+
+  function handleOpenPopup() {
+    if (popupAdd) {
+      popupAdd.classList.add("openPopup");
+    }
+  }
+
+  function handleClosePopup() {
+    if (popup__add) {
+      popup__add.classList.remove("openPopup");
+    }
+  }
+
+
+  if (addButton) addButton.addEventListener("click", handleOpenPopup);
+  if (closeButton) closeButton.addEventListener("click", handleClosePopup);
+
+
+  if(formElement){
+    formElement.addEventListener("submit",(evt) =>{
+      evt.preventDefault();
+      if (placeInput && urlInput && placeDescription && placeImage) {
+        placeDescription.textContent = placeInput.value;
+        placeImage.src = urlInput.value;
+      }
+      handleClosePopup();
+    })
   }
