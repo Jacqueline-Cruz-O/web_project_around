@@ -150,7 +150,11 @@ const galleryCard = document.querySelector(".gallery__card");
   });
 });
 
-
+document.querySelectorAll(".gallery__card-button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+  });
+});
 
 
 const popupImg = document.querySelector(".gallery__popup");
