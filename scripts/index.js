@@ -205,3 +205,29 @@ closeBtn.addEventListener("click", () => {
   }
 });
 }
+
+
+// cerrar ventanas emergentes
+function closePopupOnOutsideClick(popupElement, className) {
+  document.addEventListener("mousedown", (event) => {
+    if (popupElement && popupElement.classList.contains(className) && !popupElement.contains(event.target)) {
+      popupElement.classList.remove(className);
+    }
+  });
+}
+if (popup) closePopupOnOutsideClick(popup, "openPopup");
+if (popupAdd) closePopupOnOutsideClick(popupAdd, "openPopup__add");
+if (popupImg) closePopupOnOutsideClick(popupImg, "open");
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const popup = document.querySelector(".popup.openPopup");
+    const popupAdd = document.querySelector(".popup__add.openPopup__add");
+    const popupImg = document.querySelector(".gallery__popup.open");
+
+    if (popup) popup.classList.remove("openPopup");
+    if (popupAdd) popupAdd.classList.remove("openPopup__add");
+    if (popupImg) popupImg.classList.remove("open");
+  }
+});
+
