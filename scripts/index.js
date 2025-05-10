@@ -1,47 +1,17 @@
+// Tarjetas iniciales
+const initialCards = [
+  { name: "Valle de Yosemite", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg" },
+  { name: "Lago Louise", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg" },
+  { name: "Montañas Calvas", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg" },
+  { name: "Latemar", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg" },
+  { name: "Parque Nacional de la Vanoise", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg" },
+  { name: "Lago di Braies", link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg" }
+];
+
+// Pop up perfil
 const popup = document.querySelector (".popup");
 const editButton =document.querySelector (".profile__info-edit-button");
 const closeButton = document.querySelector(".popup__button-close");
-const formElement =document.querySelector(".popup__form");
-const nameInput = document.querySelector(".popup__form-input-name");
-const aboutInput = document.querySelector(".popup__form-input-about");
-const profileName = document.querySelector(".profile__info-name");
-const profileDescription = document.querySelector (".profile__info-details");
-const buttonSubmit = document.querySelector(".popup__button-save");
-const popupAdd = document.querySelector(".popup__add");
-const addButton = document.querySelector (".profile__info-add-button");
-const closeAddButton = document.querySelector(".popup__add-button-close");
-const formAddElement =document.querySelector(".popup__form-add");
-const placeInput = document.querySelector(".popup__form-input-place");
-const urlInput = document.querySelector(".popup__form-input-url");
-const placeDescription = document.querySelector(".gallery__card-text")
-const placeImage = document.querySelector(".gallery__img")
-const createButton = document.querySelector(".popup__button-create");
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-  }
-];
 
 function handleOpenPopup() {
   if (popup) {
@@ -58,6 +28,15 @@ function handleClosePopup() {
 if (editButton) editButton.addEventListener("click", handleOpenPopup);
 if (closeButton) closeButton.addEventListener("click", handleClosePopup);
 
+
+// formulario perfil
+const formElement = document.querySelector(".popup__form");
+const nameInput = document.querySelector(".popup__form-input-name");
+const aboutInput = document.querySelector(".popup__form-input-about");
+const profileName = document.querySelector(".profile__info-name");
+const profileDescription = document.querySelector(".profile__info-details");
+
+
 if (formElement) {
   formElement.addEventListener("submit", (evt) => {
     evt.preventDefault();
@@ -66,8 +45,15 @@ if (formElement) {
       profileDescription.textContent = aboutInput.value;
     }
     handleClosePopup();
+    placeInput.value = "";
+    urlInput.value = "";
   });
 }
+
+// pop up agregar tarjeta
+const popupAdd = document.querySelector(".popup__add");
+const addButton = document.querySelector(".profile__info-add-button");
+const closeAddButton = document.querySelector(".popup__add-button-close");
 
 function handleOpenPopupAdd() {
   if (popupAdd) {
@@ -81,43 +67,37 @@ function handleClosePopupAdd() {
   }
 }
 
-
 if (addButton) addButton.addEventListener("click", handleOpenPopupAdd);
 if (closeAddButton) closeAddButton.addEventListener("click", handleClosePopupAdd);
 
+
+// ----------- CREAR TARJETA -----------
 function createCard(name, link) {
   const card = document.createElement("div");
   card.classList.add("gallery__card");
-
 
   const image = document.createElement("img");
   image.classList.add("gallery__img");
   image.src = link;
   image.alt = name;
 
-
   image.addEventListener("click", () => {
     const popupImg = document.querySelector(".gallery__popup");
-    const popupImage = popupImg.querySelector(".gallery__popup-img");
-    const popupCaption = popupImg.querySelector(".gallery__popup-caption");
+    const popupImage = popupImg?.querySelector(".gallery__popup-img");
 
-    if (popupImg && popupImage && popupCaption) {
+    if (popupImg && popupImage) {
       popupImage.src = link;
       popupImage.alt = name;
-      popupCaption.textContent = name;
       popupImg.classList.add("open");
     }
   });
 
-
   const cardBottom = document.createElement("div");
   cardBottom.classList.add("gallery__card-description");
-
 
   const description = document.createElement("h2");
   description.classList.add("gallery__card-text");
   description.textContent = name;
-
 
   const likeButton = document.createElement("button");
   likeButton.classList.add("gallery__card-button");
@@ -140,30 +120,7 @@ function createCard(name, link) {
 
   return card;
 }
-
-
-function addCardToGallery(name, link) {
-const gallery = document.querySelector(".gallery");
-const card = createCard(name, link);
-if (gallery) {
-  gallery.prepend(card);
-}
-}
-
-if (formAddElement) {
-formAddElement.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  if (placeInput && urlInput) {
-    const name = placeInput.value;
-    const link = urlInput.value;
-
-    addCardToGallery(name, link);
-
-    handleClosePopupAdd();
-  }
-});
-}
-
+// boton me gusta
 
 const trashButton = document.querySelectorAll(".gallery__card-trash-button");
 const galleryCard = document.querySelector(".gallery__card");
@@ -180,7 +137,30 @@ const likeButton = document.querySelectorAll(".gallery__card-button").forEach((l
 });
 });
 
+// agregar a la galeria
+function addCardToGallery(name, link) {
+  const gallery = document.querySelector(".gallery");
+  const card = createCard(name, link);
+  gallery?.prepend(card);
+}
 
+
+// formulario agregar tarjtea
+const formAddElement = document.querySelector(".popup__form-add");
+const placeInput = document.querySelector(".popup__form-input-place");
+const urlInput = document.querySelector(".popup__form-input-url");
+
+formAddElement?.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  if (placeInput && urlInput) {
+    addCardToGallery(placeInput.value, urlInput.value);
+    handleClosePopupAdd();
+    placeInput.value = "";
+    urlInput.value = "";
+  }
+});
+
+// imagen ampliada
 const popupImg = document.querySelector(".gallery__popup");
 const closeBtn = document.querySelector(".gallery__popup-button");
 const galleryImages = document.querySelectorAll(".gallery__img");
@@ -199,35 +179,42 @@ img.addEventListener("click", () => {
 });
 
 if (closeBtn) {
-closeBtn.addEventListener("click", () => {
-  if (popupImg) {
-    popupImg.classList.remove("open");
+  closeBtn.addEventListener("click", () => {
+    if (popupImg) {
+      popupImg.classList.remove("open");
+    }
+  });
   }
-});
-}
 
-
-// cerrar ventanas emergentes
+// cerrar con click externo
 function closePopupOnOutsideClick(popupElement, className) {
   document.addEventListener("mousedown", (event) => {
-    if (popupElement && popupElement.classList.contains(className) && !popupElement.contains(event.target)) {
+    if (popupElement?.classList.contains(className) && !event.target.closest(`.${className}`)) {
       popupElement.classList.remove(className);
     }
   });
 }
-if (popup) closePopupOnOutsideClick(popup, "openPopup");
-if (popupAdd) closePopupOnOutsideClick(popupAdd, "openPopup__add");
-if (popupImg) closePopupOnOutsideClick(popupImg, "open");
 
+closePopupOnOutsideClick(popup, "openPopup");
+closePopupOnOutsideClick(popupAdd, "openPopup__add");
+closePopupOnOutsideClick(popupImg, "open");
+
+// cerrar con tecla ESC
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    const popup = document.querySelector(".popup.openPopup");
-    const popupAdd = document.querySelector(".popup__add.openPopup__add");
-    const popupImg = document.querySelector(".gallery__popup.open");
-
-    if (popup) popup.classList.remove("openPopup");
-    if (popupAdd) popupAdd.classList.remove("openPopup__add");
-    if (popupImg) popupImg.classList.remove("open");
+    document.querySelector(".popup.openPopup")?.classList.remove("openPopup");
+    document.querySelector(".popup__add.openPopup__add")?.classList.remove("openPopup__add");
+    document.querySelector(".gallery__popup.open")?.classList.remove("open");
   }
 });
 
+// llamada a la validación
+import { enableValidation } from './validate.js';
+
+enableValidation({
+  formSelector: ".popup__form, .popup__form-add",
+  inputSelector: "input",
+  submitButtonSelector: "button[type='submit']",
+  errorClass: "popup__form-input-error_active",
+  useCustomStyles: true
+});

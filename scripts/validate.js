@@ -1,69 +1,54 @@
-// validación de formularios
-
-function showInputError(errorElement) {
-  errorElement.classList.add("popup__form-input-error_active");
+//validación formularios
+function showInputError(inputElement, errorMessage, config) {
+  const errorElement = document.getElementById(`${inputElement.id}-error`);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(config.errorClass);
 }
 
-function hideInputError(errorElement) {
+function hideInputError(inputElement, config) {
+  const errorElement = document.getElementById(`${inputElement.id}-error`);
   errorElement.textContent = "";
-  errorElement.classList.remove("popup__form-input-error_active");
+  errorElement.classList.remove(config.errorClass);
 }
 
-function checkInputValidity(inputElement, errorElement) {
+function checkInputValidity(inputElement, config) {
   if (!inputElement.validity.valid) {
-    showInputError(errorElement);
-    return false;
+    showInputError(inputElement, inputElement.validationMessage, config);
   } else {
-    hideInputError(errorElement);
-    return true;
+    hideInputError(inputElement, config);
   }
 }
 
-function toggleButtonState(inputs, button) {
+function toggleButtonState(inputs, button, config) {
   const allValid = inputs.every((input) => input.validity.valid);
   button.disabled = !allValid;
-  button.style.backgroundColor = allValid ? "#000" : "#fff";
-  button.style.color = allValid ? "#fff" : "#C4C4C4";
-  button.style.cursor = allValid ? "pointer" : "default";
+
+  if (config.useCustomStyles) {
+    button.style.backgroundColor = allValid ? "#000" : "#fff";
+    button.style.color = allValid ? "#fff" : "#C4C4C4";
+    button.style.cursor = allValid ? "pointer" : "default";
+  }
 }
 
-function resetFormErrors(inputs, errors, button) {
-  inputs.forEach((input, index) => {
-    input.value = "";
-    hideInputError(errors[index]);
+function setEventListeners(formElement, config) {
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+
+  toggleButtonState(inputList, buttonElement, config);
+
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", () => {
+      checkInputValidity(inputElement, config);
+      toggleButtonState(inputList, buttonElement, config);
+    });
   });
-  toggleButtonState(inputs, button);
 }
 
-const nameError = document.getElementById("name-error");
-const aboutError = document.getElementById("about-error");
-const editInputs = [nameInput, aboutInput];
-const editErrors = [nameError, aboutError];
-
-editInputs.forEach((input, index) => {
-  input.addEventListener("input", () => {
-    checkInputValidity(input, editErrors[index]);
-    toggleButtonState(editInputs, buttonSubmit);
+function enableValidation(config) {
+  const forms = document.querySelectorAll(config.formSelector);
+  forms.forEach((formElement) => {
+    setEventListeners(formElement, config);
   });
-});
+}
 
-const placeError = document.getElementById("place-error");
-const urlError = document.getElementById("url-error");
-const addInputs = [placeInput, urlInput];
-const addErrors = [placeError, urlError];
-
-addInputs.forEach((input, index) => {
-  input.addEventListener("input", () => {
-    checkInputValidity(input, addErrors[index]);
-    toggleButtonState(addInputs, createButton);
-  });
-});
-
-enableValidation({
-  formSelector: ".popup__form, .popup__form-add",
-  inputSelector: "input",
-  submitButtonSelector: ".popup__button-save, .popup__button-create",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible"
-});
+export { enableValidation };
