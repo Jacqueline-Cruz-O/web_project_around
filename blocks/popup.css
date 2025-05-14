@@ -138,7 +138,7 @@
    margin-bottom:30px;
  }
  .popup__form-input-error{
-     max-width: 238px;
+      width: 15rem;
       margin-left: 22px;
     }
  }
@@ -155,7 +155,7 @@
      left: 270px;
 
    }
-  }
+
 
 
 
