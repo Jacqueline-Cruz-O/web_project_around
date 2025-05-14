@@ -45,8 +45,8 @@ if (formElement) {
       profileDescription.textContent = aboutInput.value;
     }
     handleClosePopup();
-    placeInput.value = "";
-    urlInput.value = "";
+    nameInput.value = "";
+    aboutInput.value = "";
   });
 }
 
@@ -212,7 +212,15 @@ document.addEventListener("keydown", (event) => {
 import { enableValidation } from './validate.js';
 
 enableValidation({
-  formSelector: ".popup__form, .popup__form-add",
+  formSelector: ".popup__form",
+  inputSelector: "input",
+  submitButtonSelector: "button[type='submit']",
+  errorClass: "popup__form-input-error_active",
+  useCustomStyles: true
+});
+
+enableValidation({
+  formSelector: ".popup__form-add",
   inputSelector: "input",
   submitButtonSelector: "button[type='submit']",
   errorClass: "popup__form-input-error_active",

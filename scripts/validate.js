@@ -1,19 +1,19 @@
 //validación formularios
-function showInputError(inputElement, errorMessage, config) {
+
+function showInputError(inputElement, config) {
   const errorElement = document.getElementById(`${inputElement.id}-error`);
-  errorElement.textContent = errorMessage;
   errorElement.classList.add(config.errorClass);
 }
 
 function hideInputError(inputElement, config) {
   const errorElement = document.getElementById(`${inputElement.id}-error`);
-  errorElement.textContent = "";
   errorElement.classList.remove(config.errorClass);
 }
 
+
 function checkInputValidity(inputElement, config) {
   if (!inputElement.validity.valid) {
-    showInputError(inputElement, inputElement.validationMessage, config);
+    showInputError(inputElement, config);
   } else {
     hideInputError(inputElement, config);
   }
