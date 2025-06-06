@@ -15,7 +15,6 @@
 }
 
 .gallery__popup{
-  display:flex;
   flex-direction: column;
   position: fixed;
   z-index: 1;
@@ -95,7 +94,7 @@
   cursor: pointer;
  }
 
- .gallery__card-button.active{
+ .gallery__card-button_active{
   width: 21px;
   height: 19px;
   background-image: url(../images/button-like-black.png);

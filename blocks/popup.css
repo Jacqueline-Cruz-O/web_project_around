@@ -106,7 +106,7 @@
 
  @media screen and (min-width: 768px) and (max-width: 1024px)
   {
-   .popup__button-close {
+   .popup__button-close, .popup__add-button-close {
      position: absolute;
      top: -40px;
      left: 430px;
@@ -141,7 +141,7 @@
       width: 15rem;
       margin-left: 22px;
     }
- }
+
  .popup__button-save, .popup__button-create{
    max-width: 328px;
    margin:16px 22px 25px 22px;
@@ -152,10 +152,9 @@
      background-size: contain;
      position: absolute;
      top: -40px;
-     left: 270px;
-
+     left: 380px;
    }
 
-
+  }
 
 
