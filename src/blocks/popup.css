@@ -1,4 +1,4 @@
-.popup, .popup__add{
+.popup, .popup__edit, .popup__add{
   background-color:#fff;
   width: 430px;
   height: 330px;
@@ -11,6 +11,32 @@
   left: 50%;
   transform: translate(-50%, -50%);
  }
+.popup__delete{
+  background-color:#fff;
+  width: 430px;
+  height: 180px;
+  flex-direction: column;
+  border-radius: 10px;
+  display:none;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.popup__avatar{
+    background-color:#fff;
+  width: 430px;
+  height: 280px;
+  flex-direction: column;
+  border-radius: 10px;
+  display:none;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
  .openPopup, .openPopup__add{
    display:flex;
@@ -76,6 +102,20 @@
    margin-top:18px;
  }
 
+.popup__button-delete{
+    width:358px;
+   height: 50px;
+   background-color: #000000;
+   color:#C4C4C4;
+   font-family: "Inter-regular";
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 1;
+   padding: 0;
+   border: 1px solid #c4c4c4;
+   margin:0 38px 38px;
+}
+
  .popup__button:hover{
    opacity: 0.8;
    cursor: pointer;
@@ -93,7 +133,7 @@
    top: -40px;
    left: 430px;
    background-color: transparent;
-   background-image: url(/images/close-button.png);
+   background-image: url(../../images/close-button.png);
    background-repeat: no-repeat;
    border: none;
  }
@@ -126,6 +166,9 @@
   margin:0;
  }
 
+.profile__photo-container {
+    display: flex;
+    align-self: center;}
  .popup__title{
    max-width: 238px;
    font-size:18px;
@@ -137,6 +180,7 @@
    margin-right:22px;
    margin-bottom:30px;
  }
+
  .popup__form-input-error{
       width: 15rem;
       margin-left: 22px;
@@ -146,6 +190,19 @@
    max-width: 328px;
    margin:16px 22px 25px 22px;
  }
+
+.popup__button-delete {
+    width: 328px;
+    background-color: #000000;
+    color: #C4C4C4;
+    font-family: "Inter-regular";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+    border: 1px solid #c4c4c4;
+    margin: 0 23px 23px;}
+
  .popup__button-close, .popup__add-button-close {
      width: 26px;
      height: 26px;

@@ -9,44 +9,50 @@
     />
   <meta name="keywords" content="Lugares de EEUU" />
   <meta name="author" content="Jacqueline Cruz Olguín" />
-  <link rel="stylesheet" href="./pages/index.css" />
-  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="shortcut icon" href="../../favicon.ico" />
   <title> Alrededor de los E.E.U.U.</title>
 </head>
 <body class="page">
   <div>
     <header class="header">
-      <img class="header__image" src="./images/header.png" alt="header-img"/>
+      <img class="header__image" src="../../images/header.png" alt="header-img"/>
     </header>
     <main class="content">
       <section class="profile">
-          <img class="profile__photo" src="./images/perfil.jpg" alt="profile-photo" />
+        <div class="profile__photo-container">
+          <img class="profile__photo" src="../../images/perfil.jpg" alt="profile-photo" />
+          <div class="profile__photo-overlay">
+            <button class="profile__avatar-button" type="button"> <img class="profile__button-edit" src="../../images/edit-profile.png" alt="edit-profile"/> </button>
+          </div>
+          </div>
         <div class="profile__info">
           <h1 class="profile__info-name">Jacques Cousteau</h1>
-          <button class="profile__info-edit-button" type="button"><img src="./images/vector-edit.png" alt="edit-button"></button>
+          <button class="profile__info-edit-button" type="button"><img src="../../images/vector-edit.png" alt="edit-button"></button>
           <p class="profile__info-details">Explorador</p>
         </div>
         <div>
-        <button class="profile__info-add-button" type="button"><img src="./images/vector-plus.png" alt="add-button"> </button>
+        <button class="profile__info-add-button" type="button"><img src="../../images/vector-plus.png" alt="add-button"> </button>
         </div>
       </section>
       <section class="gallery">
+      </section>
       <template id="card-template">
         <div class="gallery__card">
           <button class="gallery__card-trash-button"></button>
-          <img class="gallery__img" src="./images/yosemite.jpeg" alt="yosemite"/>
+          <img class="gallery__img" src="../../images/yosemite.jpeg" alt="yosemite"/>
          <div class="gallery__card-description">
          <h2 class="gallery__card-text">Valle de Yosemite</h2>
           <button class="gallery__card-button" type="button"></button>
          </div>
         </div>
       </template>
-      </section>
+
         <div class= "gallery__popup">
-        <img class="gallery__popup-img" src="./images/yosemite.jpeg" alt="yosemite"/>
+        <img class="gallery__popup-img" src="../../images/yosemite.jpeg" alt="yosemite"/>
         <button type="button" class="gallery__popup-button"></button>
          </div>
-       <div class="popup">
+       <div class="popup popup__edit">
         <button type="button" class="popup__button-close"></button>
           <h3 class="popup__title">Editar perfil</h3>
           <form class="popup__form" name="edit" novalidate>
@@ -57,7 +63,7 @@
             <button type="submit" class="popup__button-save" disabled>Guardar</button>
           </form>
       </div>
-      <div class="popup__add">
+      <div class="popup popup__add">
         <button type="button" class="popup__add-button-close"></button>
           <h3 class="popup__title">Nuevo lugar</h3>
           <form class="popup__form-add" name="add" novalidate>
@@ -68,11 +74,32 @@
             <button type="submit" class="popup__button-create" disabled>Crear</button>
           </form>
       </div>
+      <div class="popup popup__delete">
+        <button type="button" class="popup__add-button-close"></button>
+        <h3 class="popup__title"> ¿Estas seguro/a? </h3>
+        <button type="submit" class="popup__button-delete">Sí</button>
+      </div>
+     <div class="popup popup__avatar">
+  <button type="button" class="popup__add-button-close"></button>
+  <h3 class="popup__title">Cambiar foto de perfil</h3>
+<form name="avatar" class="popup__form popup__form-avatar">
+  <input
+    id="avatar"
+    name="avatar"
+    type="url"
+    class="popup__form-input popup__form-input-url"
+    placeholder="Enlace a la imagen"
+    required
+  />
+  <span class="popup__form-input-error" id="avatar-error">Por favor, introduce una dirección web.</span>
+  <button type="submit" class="popup__button popup__button-save">Guardar</button>
+</form>
+</div>
     </main>
     <footer>
       <p class="footer"> &copy;2024 Around The U.S.</p>
     </footer>
   </div>
-  <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./index.js"></script>
 </body>
 </html>
